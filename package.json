@@ -2,10 +2,27 @@
   "name": "verify-github-webhook-secret",
   "version": "0.1.0",
   "description": "Verifies the secret that is sent in GitHub Webhooks",
-  "main": "dist/src/index.js",
-  "repository": "git@github.com:screendriver/verify-github-webhook-secret.git",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "author": "Christian Rackerseder <git@echooff.de>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/screendriver/verify-github-webhook-secret.git"
+  },
+  "bugs": {
+    "url": "https://github.com/screendriver/verify-github-webhook-secret/issues"
+  },
+  "homepage": "https://github.com/screendriver/verify-github-webhook-secret#readme",
+  "keywords": [
+    "secret",
+    "github",
+    "webhook"
+  ],
+  "files": [
+    "dist/src/index.js",
+    "dist/src/index.d.ts"
+  ],
   "scripts": {
     "precommit": "pretty-quick --staged",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'"
