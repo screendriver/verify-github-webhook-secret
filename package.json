@@ -1,6 +1,7 @@
 {
   "name": "verify-github-webhook-secret",
   "version": "0.1.0",
+  "description": "Verifies the secret that is sent in GitHub Webhooks",
   "main": "dist/src/index.js",
   "repository": "git@github.com:screendriver/verify-github-webhook-secret.git",
   "author": "Christian Rackerseder <git@echooff.de>",
