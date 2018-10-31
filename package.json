@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "precommit": "pretty-quick --staged",
+    "prepublishOnly": "yarn clean && yarn build && yarn test",
     "clean": "rm -rf dist",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "test:unit": "tape -r source-map-support/register 'dist/test/unit/**/*.js' | tap-spec",
