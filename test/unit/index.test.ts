@@ -1,7 +1,13 @@
 import test from 'tape';
-import { testMe } from '../../src/index';
+import { IncomingMessage } from 'http';
+import verifySecret = require('../../src/index');
 
-test('should work', t => {
+test('should return false when "x-hub-signature" is missing', async t => {
   t.plan(1);
-  t.is(testMe(), 123);
+  const req: Partial<IncomingMessage> = {
+    headers: {},
+  };
+  const secret = '';
+  const valid = await verifySecret(req as IncomingMessage, secret);
+  t.false(valid);
 });
