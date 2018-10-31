@@ -27,7 +27,8 @@
     "precommit": "pretty-quick --staged",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "test:unit": "tape -r source-map-support/register 'dist/test/unit/**/*.js' | tap-spec",
-    "test": "yarn lint && yarn test:unit"
+    "test": "yarn lint && yarn test:unit",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/tape": "4.2.32",
