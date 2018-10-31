@@ -33,7 +33,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "co-body": "6.0.0"
+    "co-body": "6.0.0",
+    "tslib": "1.9.3"
   },
   "devDependencies": {
     "@types/got": "9.2.0",
