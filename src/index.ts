@@ -1,6 +1,6 @@
-import crypto from 'crypto';
 import { IncomingMessage } from 'http';
-import { text } from 'micro';
+import crypto from 'crypto';
+import parse from 'co-body';
 
 export = async function verifySecret(
   req: IncomingMessage,
@@ -10,7 +10,7 @@ export = async function verifySecret(
   if (!signature) {
     return false;
   }
-  const body = await text(req);
+  const body = await parse.text(req);
   const hmac = crypto.createHmac('sha1', secret);
   hmac.update(body);
   const calculated = `sha1=${hmac.digest('hex')}`;
