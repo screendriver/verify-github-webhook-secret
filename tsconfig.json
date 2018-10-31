@@ -15,7 +15,8 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "plugins": [{ "name": "typescript-tslint-plugin" }]
+    "plugins": [{ "name": "typescript-tslint-plugin" }],
+    "typeRoots": ["./typings", "./node_modules/@types"]
   },
   "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules"]
