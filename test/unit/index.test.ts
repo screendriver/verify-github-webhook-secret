@@ -1,6 +1,7 @@
 import test from 'tape';
+import { testMe } from '../../src/index';
 
 test('should work', t => {
-  t.pass();
-  t.end();
+  t.plan(1);
+  t.is(testMe(), 123);
 });

@@ -12,3 +12,4 @@ script:
   - yarn clean
   - yarn build
   - yarn test
+  - codecov -f coverage/*.json

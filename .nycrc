@@ -1,0 +1,11 @@
+{
+  "exclude": [
+    "**/*.test.*",
+    "dist/test/integration"
+  ],
+  "reporter": [
+    "lcov",
+    "json",
+    "text-summary"
+  ]
+}
