@@ -25,12 +25,18 @@
   ],
   "scripts": {
     "precommit": "pretty-quick --staged",
-    "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "test:unit": "tape -r source-map-support/register 'dist/test/unit/**/*.js' | tap-spec",
+    "test": "yarn lint && yarn test:unit"
   },
   "devDependencies": {
+    "@types/tape": "4.2.32",
     "husky": "1.1.2",
     "prettier": "1.14.3",
     "pretty-quick": "1.8.0",
+    "source-map-support": "0.5.9",
+    "tap-spec": "5.0.0",
+    "tape": "4.9.1",
     "tslint": "5.11.0",
     "typescript": "3.1.4",
     "typescript-tslint-plugin": "0.0.4"
