@@ -32,6 +32,9 @@
     "test": "yarn lint && nyc yarn test:unit && yarn test:integration",
     "build": "tsc"
   },
+  "dependencies": {
+    "co-body": "6.0.0"
+  },
   "devDependencies": {
     "@types/got": "9.2.0",
     "@types/micro": "7.3.3",
