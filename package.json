@@ -21,7 +21,9 @@
   ],
   "files": [
     "dist/src/index.js",
-    "dist/src/index.d.ts"
+    "dist/src/verify.js",
+    "dist/src/index.d.ts",
+    "dist/src/verify.d.ts"
   ],
   "scripts": {
     "precommit": "pretty-quick --staged",
