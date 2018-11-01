@@ -4,7 +4,7 @@ import got from 'got';
 import test from 'tape';
 import verify = require('../../src/index');
 
-test('return false when "x-hub-signature" header is missing', async t => {
+test('return "false" when "x-hub-signature" header is missing', async t => {
   t.plan(1);
   const server = micro(async req => {
     const valid = await verify(req, 'my-secret');
@@ -20,7 +20,7 @@ test('return false when "x-hub-signature" header is missing', async t => {
   server.close();
 });
 
-test('return false when secret is wrong', async t => {
+test('return "false" when secret is wrong', async t => {
   t.plan(1);
   const server = micro(async req => {
     const valid = await verify(req, 'wrong-secret');
@@ -41,7 +41,7 @@ test('return false when secret is wrong', async t => {
   server.close();
 });
 
-test('return true when secret is correct', async t => {
+test('return "true" when secret is correct', async t => {
   t.plan(1);
   const server = micro(async req => {
     const valid = await verify(req, 'my-secret');
