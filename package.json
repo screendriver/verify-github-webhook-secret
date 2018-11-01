@@ -36,7 +36,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "co-body": "6.0.0",
+    "micro": "9.3.3",
     "tslib": "1.9.3"
   },
   "devDependencies": {
@@ -47,7 +47,6 @@
     "codecov": "3.1.0",
     "got": "9.3.0",
     "husky": "1.1.2",
-    "micro": "9.3.3",
     "nyc": "13.1.0",
     "prettier": "1.14.3",
     "pretty-quick": "1.8.0",
