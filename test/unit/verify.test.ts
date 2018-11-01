@@ -12,6 +12,12 @@ test('return "false" when signature is missing', t => {
   t.false(valid);
 });
 
+test('return "false" when signature is an Array', t => {
+  t.plan(1);
+  const valid = verifySecret(body, 'wrong-secret', signature);
+  t.false(valid);
+});
+
 test('return "false" when secret is wrong', t => {
   t.plan(1);
   const valid = verifySecret(body, 'wrong-secret', signature);

@@ -3,7 +3,7 @@ import crypto from 'crypto';
 export function verifySecret(
   body: string,
   secret: string,
-  signature?: string,
+  signature?: string | string[],
 ): boolean {
   if (!signature) {
     return false;
