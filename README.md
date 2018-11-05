@@ -6,19 +6,19 @@
 
 Verifies the [secret](https://developer.github.com/v3/repos/hooks/#create-hook-config-params) that is sent in [GitHub Webhooks](https://developer.github.com/webhooks/). The `secret` will be used as the key to generate the HMAC hex digest value in the `X-Hub-Signature` header.
 
-## Installation
-
-```sh
-$ yarn install verify-github-webhook-secret
-```
-
-or with npm
+## Installation 🏗
 
 ```sh
 $ npm install --save verify-github-webhook-secret
 ```
 
-## Usage
+or if you use [Yarn](https://yarnpkg.com) 🐈
+
+```sh
+$ yarn add verify-github-webhook-secret
+```
+
+## Usage 🔨
 
 The exported function needs a [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage) and your personal `secret` string. It returns a Promise that fulfills with a boolean if the received secret is valid or not.
 
