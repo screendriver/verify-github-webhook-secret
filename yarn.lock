@@ -2080,10 +2080,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-typescript-tslint-plugin@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/typescript-tslint-plugin/-/typescript-tslint-plugin-0.0.4.tgz#8f403606b94a0be64823ba584264dfd52885e4f3"
-  integrity sha512-4ulIuRFrBfc52rmUvwOyPM8oRSqKmhyixpbk6v/1WaeoP9lc8o8lauCPpY7NFCK5FI3JZ/Znuak7OqBflwycTw==
+typescript-tslint-plugin@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/typescript-tslint-plugin/-/typescript-tslint-plugin-0.0.5.tgz#69243f2cf4f1f99c3f0e2ee456056c6ffc858b38"
+  integrity sha512-OfdDTiaaFBMbyaTSgnGAEGK5ixiMX/5DvggBHVQAjDiJlkPJoBSO47BGMW10CWP6FxIclzA/mvz0qAqK6Kpaag==
   dependencies:
     minimatch "^3.0.4"
     vscode-languageserver "^5.1.0"
