@@ -34,7 +34,7 @@
     "test:integration": "tape -r source-map-support/register 'dist/test/integration/**/*.js' | tap-dot",
     "test": "yarn lint && yarn test:unit && yarn test:integration && yarn coverage",
     "coverage": "nyc report --reporter=text-summary",
-    "build": "tsc"
+    "build": "tsc --build"
   },
   "dependencies": {
     "micro": "9.3.3",
