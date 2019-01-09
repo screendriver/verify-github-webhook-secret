@@ -5,6 +5,7 @@
   ],
   "reporter": [
     "lcov",
+    "cobertura",
     "json"
   ]
 }
