@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Allow to call function directly with body and signature
+
 # 1.0.3
 
 - fix README
