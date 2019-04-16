@@ -44,11 +44,11 @@
     "tslib": "1.9.3"
   },
   "devDependencies": {
-    "@types/got": "9.2.0",
+    "@types/got": "9.4.2",
     "@types/micro": "7.3.3",
     "@types/tape": "4.2.33",
     "@types/test-listen": "1.1.0",
-    "got": "9.3.2",
+    "got": "9.6.0",
     "nyc": "14.0.0",
     "prettier": "1.17.0",
     "source-map-support": "0.5.12",
