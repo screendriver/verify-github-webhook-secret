@@ -35,7 +35,7 @@
     "test:integration:tap": "tape -r source-map-support/register 'dist/test/integration/**/*.js'",
     "test:integration": "yarn test:integration:tap | tap-dot",
     "test": "yarn lint && yarn test:unit && yarn test:integration && yarn coverage",
-    "test:ci": "yarn lint && yarn test:unit:tap | tap-xunit > test-results.xml && yarn test:integration:tap | tap-xunit",
+    "test:ci": "yarn test:unit:tap | tap-xunit > test-results.xml && yarn test:integration:tap | tap-xunit",
     "coverage": "nyc report --reporter=text-summary",
     "build": "tsc --build"
   },
