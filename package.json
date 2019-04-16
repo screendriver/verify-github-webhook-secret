@@ -51,7 +51,7 @@
     "got": "9.3.2",
     "nyc": "13.3.0",
     "prettier": "1.17.0",
-    "source-map-support": "0.5.9",
+    "source-map-support": "0.5.12",
     "tap-dot": "2.0.0",
     "tap-xunit": "2.3.0",
     "tape": "4.9.1",
