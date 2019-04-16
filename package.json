@@ -30,13 +30,12 @@
     "clean": "rm -rf dist",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "check:prettier": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
-    "test:unit:tap": "nyc tape -r source-map-support/register 'dist/test/unit/**/*.js'",
-    "test:unit": "yarn test:unit:tap | tap-dot",
+    "test:unit:coverage": "nyc tape -r source-map-support/register 'dist/test/unit/**/*.js'",
+    "test:unit": "yarn test:unit:coverage | tap-dot",
     "test:integration:tap": "tape -r source-map-support/register 'dist/test/integration/**/*.js'",
     "test:integration": "yarn test:integration:tap | tap-dot",
     "test": "yarn lint && yarn test:unit && yarn test:integration && yarn coverage",
-    "test:ci": "yarn test:unit:tap | tap-xunit > test-results.xml && yarn test:integration:tap | tap-xunit",
-    "coverage": "nyc report --reporter=text-summary",
+    "test:ci": "yarn test:unit:coverage | tap-xunit > test-results.xml && yarn test:integration:tap | tap-xunit",
     "build": "tsc --build"
   },
   "dependencies": {
