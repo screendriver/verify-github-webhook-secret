@@ -1,11 +1,15 @@
 {
-  "exclude": [
-    "**/*.test.*",
-    "dist/test/integration"
+  "all": true,
+  "include": [
+    "dist/src/**/*.js"
   ],
+  "exclude": [
+    "dist/src/index.js"
+  ],
+  "exclude-after-remap": false,
   "reporter": [
     "lcov",
     "cobertura",
-    "json"
+    "text-summary"
   ]
 }
