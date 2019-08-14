@@ -29,7 +29,7 @@
     "prepublishOnly": "yarn clean && yarn build && yarn test",
     "clean": "rm -rf dist",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
-    "check:prettier": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
+    "prettier:check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
     "test:unit:coverage": "nyc tape -r source-map-support/register 'dist/test/unit/**/*.js'",
     "test:unit": "tape -r source-map-support/register 'dist/test/unit/**/*.js' | tap-nirvana",
     "test:integration": "tape -r source-map-support/register 'dist/test/integration/**/*.js' | tap-nirvana",
