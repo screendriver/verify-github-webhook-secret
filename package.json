@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "micro": "9.3.3",
-    "tslib": "1.9.3"
+    "tslib": "1.10.0"
   },
   "devDependencies": {
     "@types/got": "9.4.2",
