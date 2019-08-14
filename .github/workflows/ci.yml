@@ -26,4 +26,6 @@ jobs:
       - name: Compile source code
         run: yarn build
       - name: Run tests
-        run: yarn test:ci
+        run: |
+          yarn test:unit:coverage
+          yarn test:integration
