@@ -36,7 +36,7 @@
     "build": "tsc --build"
   },
   "dependencies": {
-    "micro": "9.3.3",
+    "micro": "9.3.4",
     "tslib": "1.10.0"
   },
   "devDependencies": {
