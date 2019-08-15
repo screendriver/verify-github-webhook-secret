@@ -20,10 +20,9 @@
     "webhook"
   ],
   "files": [
-    "dist/src/index.js",
-    "dist/src/verify.js",
-    "dist/src/index.d.ts",
-    "dist/src/verify.d.ts"
+    "dist/src/**/*.js",
+    "dist/src/**/*.js.map",
+    "dist/src/**/*.d.ts"
   ],
   "scripts": {
     "prepublishOnly": "yarn clean && yarn build && yarn test",
