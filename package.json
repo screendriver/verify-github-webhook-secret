@@ -40,7 +40,7 @@
     "tslib": "1.10.0"
   },
   "devDependencies": {
-    "@types/got": "9.4.2",
+    "@types/got": "9.6.7",
     "@types/micro": "7.3.3",
     "@types/tape": "4.2.33",
     "@types/test-listen": "1.1.0",
