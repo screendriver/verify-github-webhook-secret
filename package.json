@@ -25,7 +25,6 @@
     "dist/src/**/*.d.ts"
   ],
   "scripts": {
-    "prepublishOnly": "yarn clean && yarn build && yarn test",
     "clean": "rm -rf dist",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "prettier:check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
