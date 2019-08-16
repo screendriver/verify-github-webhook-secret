@@ -1,5 +1,6 @@
 # verify-github-webhook-secret
 
+<a href="https://github.com/screendriver/verify-github-webhook-secret"><img alt="GitHub Actions status" src="https://github.com/screendriver/verify-github-webhook-secret/workflows/CI/badge.svg"></a>
 [![TypeScript](https://img.shields.io/badge/types-TypeScript-blue.svg)](https://www.typescriptlang.org)
 
 Verifies the [secret](https://developer.github.com/v3/repos/hooks/#create-hook-config-params) that is sent in [GitHub Webhooks](https://developer.github.com/webhooks/). The `secret` will be used as the key to generate the HMAC hex digest value in the `X-Hub-Signature` header.
