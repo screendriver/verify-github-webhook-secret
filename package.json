@@ -49,7 +49,7 @@
     "tap-nirvana": "1.1.0",
     "tape": "4.11.0",
     "test-listen": "1.1.0",
-    "tslint": "5.18.0",
+    "tslint": "5.19.0",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.5.3",
     "typescript-tslint-plugin": "0.5.4"
