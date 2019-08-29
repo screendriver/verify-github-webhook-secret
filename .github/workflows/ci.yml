@@ -20,7 +20,7 @@ jobs:
       - name: Check source code
         run: yarn lint
       - name: Compile source code
-        run: yarn build
+        run: yarn compile
       - name: Run tests
         run: |
           yarn test:unit --coverage

@@ -26,10 +26,10 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
+    "compile": "tsc --build",
     "lint": "eslint --ignore-path .gitignore --ext ts src test",
     "test:unit": "jest dist/test/unit/",
     "test:integration": "jest dist/test/integration",
-    "build": "tsc --build"
   },
   "dependencies": {
     "micro": "9.3.4",
