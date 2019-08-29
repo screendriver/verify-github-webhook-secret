@@ -2,8 +2,8 @@
   "name": "verify-github-webhook-secret",
   "version": "1.1.0",
   "description": "Verifies the secret that is sent in GitHub Webhooks",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./target/src/index.js",
+  "types": "./target/src/index.d.ts",
   "author": "Christian Rackerseder <git@echooff.de>",
   "license": "MIT",
   "repository": {
@@ -20,16 +20,16 @@
     "webhook"
   ],
   "files": [
-    "dist/src/**/*.js",
-    "dist/src/**/*.js.map",
-    "dist/src/**/*.d.ts"
+    "target/src/**/*.js",
+    "target/src/**/*.js.map",
+    "target/src/**/*.d.ts"
   ],
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf target",
     "compile": "tsc --build",
     "lint": "eslint --ignore-path .gitignore --ext ts src test",
-    "test:unit": "jest dist/test/unit/",
-    "test:integration": "jest dist/test/integration",
+    "test:unit": "jest target/test/unit/",
+    "test:integration": "jest target/test/integration"
   },
   "dependencies": {
     "micro": "9.3.4",

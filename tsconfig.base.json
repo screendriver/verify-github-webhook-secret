@@ -3,7 +3,7 @@
     "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./dist",
+    "outDir": "target",
     "removeComments": true,
     "noEmitOnError": true,
     "importHelpers": true,
