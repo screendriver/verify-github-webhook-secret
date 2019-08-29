@@ -23,5 +23,5 @@ jobs:
         run: yarn build
       - name: Run tests
         run: |
-          yarn test:unit:coverage
+          yarn test:unit --coverage
           yarn test:integration
