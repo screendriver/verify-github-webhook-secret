@@ -18,9 +18,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Check source code
-        run: |
-          yarn lint
-          yarn prettier:check
+        run: yarn lint
       - name: Compile source code
         run: yarn build
       - name: Run tests
