@@ -27,9 +27,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint --ignore-path .gitignore . --ext ts src test",
-    "test:unit:coverage": "nyc tape -r source-map-support/register 'dist/test/unit/**/*.js'",
-    "test:unit": "tape -r source-map-support/register 'dist/test/unit/**/*.js' | tap-nirvana",
-    "test:integration": "tape -r source-map-support/register 'dist/test/integration/**/*.js' | tap-nirvana",
+    "test:unit": "jest dist/test/unit/",
+    "test:integration": "jest dist/test/integration",
     "build": "tsc --build"
   },
   "dependencies": {
@@ -39,7 +38,6 @@
   "devDependencies": {
     "@types/got": "9.6.7",
     "@types/micro": "7.3.3",
-    "@types/tape": "4.2.33",
     "@types/test-listen": "1.1.0",
     "@typescript-eslint/eslint-plugin": "2.0.0",
     "@typescript-eslint/parser": "2.0.0",
@@ -47,11 +45,7 @@
     "eslint-config-prettier": "6.1.0",
     "eslint-plugin-prettier": "3.1.0",
     "got": "9.6.0",
-    "nyc": "14.1.1",
     "prettier": "1.18.2",
-    "source-map-support": "0.5.13",
-    "tap-nirvana": "1.1.0",
-    "tape": "4.11.0",
     "test-listen": "1.1.0",
     "typescript": "3.6.2"
   }
