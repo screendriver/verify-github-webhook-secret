@@ -1,14 +1,13 @@
 import micro from 'micro';
 import listen from 'test-listen';
 import got from 'got';
-import test from 'tape';
 import verify = require('../../src/index');
 
-test('return "false" when "x-hub-signature" header is missing', async t => {
-  t.plan(1);
+test('return "false" when "x-hub-signature" header is missing', async () => {
+  expect.assertions(1);
   const server = micro(async req => {
     const valid = await verify(req, 'my-secret');
-    t.false(valid);
+    expect(valid).toBe(false);
     return '';
   });
   const url = await listen(server);
@@ -20,11 +19,11 @@ test('return "false" when "x-hub-signature" header is missing', async t => {
   server.close();
 });
 
-test('return "false" when secret is wrong', async t => {
-  t.plan(1);
+test('return "false" when secret is wrong', async () => {
+  expect.assertions(1);
   const server = micro(async req => {
     const valid = await verify(req, 'wrong-secret');
-    t.false(valid);
+    expect(valid).toBe(false);
     return '';
   });
   const url = await listen(server);
@@ -41,11 +40,11 @@ test('return "false" when secret is wrong', async t => {
   server.close();
 });
 
-test('return "true" when secret is correct', async t => {
-  t.plan(1);
+test('return "true" when secret is correct', async () => {
+  expect.assertions(1);
   const server = micro(async req => {
     const valid = await verify(req, 'my-secret');
-    t.true(valid);
+    expect(valid).toBe(true);
     return '';
   });
   const url = await listen(server);
@@ -62,12 +61,12 @@ test('return "true" when secret is correct', async t => {
   server.close();
 });
 
-test('should not hang when verify is called more than once', async t => {
-  t.plan(1);
+test('should not hang when verify is called more than once', async () => {
+  expect.assertions(1);
   const server = micro(async req => {
     const valid = await verify(req, 'my-secret');
     await verify(req, 'my-secret');
-    t.true(valid);
+    expect(valid).toBe(true);
     return '';
   });
   const url = await listen(server);
