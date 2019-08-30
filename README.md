@@ -27,7 +27,7 @@ You can use it for example with [micro](https://github.com/zeit/micro) as follow
 
 ```ts
 import micro from 'micro';
-import verifySecret from 'verify-github-webhook-secret';
+import { verifySecret } from 'verify-github-webhook-secret';
 
 const server = micro(async req => {
   const valid = await verifySecret(req, 'my-secret');
@@ -38,7 +38,7 @@ const server = micro(async req => {
 Another way to call the function is directly with the HTTP body and the `x-hub-signature` HTTP header. This is useful in an scenario where you don't have an `IncomingMessage` like in some [serverless](https://en.wikipedia.org/wiki/Serverless_computing) environments.
 
 ```ts
-import verifySecret from 'verify-github-webhook-secret';
+import { verifySecret } from 'verify-github-webhook-secret';
 
 async function myFunc() {
   const valid = await verifySecret(
