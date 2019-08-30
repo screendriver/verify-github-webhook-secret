@@ -28,8 +28,8 @@
     "clean": "rm -rf target",
     "compile": "tsc --build",
     "lint": "eslint --ignore-path .gitignore --ext ts src test",
-    "test:unit": "jest target/test/unit/",
-    "test:integration": "jest target/test/integration"
+    "test:unit": "jest test/unit/",
+    "test:integration": "jest test/integration"
   },
   "dependencies": {
     "micro": "9.3.4",
