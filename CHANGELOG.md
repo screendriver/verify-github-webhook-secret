@@ -1,3 +1,7 @@
+# 2.0.0
+
+- Export named function `verifySecret()` instead of a single object (no `export =` anymore)
+
 # 1.1.0
 
 - Allow to call function directly with body and signature
