@@ -1,6 +1,6 @@
 {
   "name": "verify-github-webhook-secret",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Verifies the secret that is sent in GitHub Webhooks",
   "main": "./target/src/index.js",
   "types": "./target/src/index.d.ts",
