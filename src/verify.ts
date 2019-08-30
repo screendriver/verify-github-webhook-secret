@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export function verifySecret(
+export function verify(
   body: string,
   secret: string,
   signature?: string | string[],

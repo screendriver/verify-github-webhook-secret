@@ -1,12 +1,12 @@
 import micro from 'micro';
 import listen from 'test-listen';
 import got from 'got';
-import verify = require('../../src/index');
+import { verifySecret } from '../../src/index';
 
 test('return "false" when "x-hub-signature" header is missing', async () => {
   expect.assertions(1);
   const server = micro(async req => {
-    const valid = await verify(req, 'my-secret');
+    const valid = await verifySecret(req, 'my-secret');
     expect(valid).toBe(false);
     return '';
   });
@@ -22,7 +22,7 @@ test('return "false" when "x-hub-signature" header is missing', async () => {
 test('return "false" when secret is wrong', async () => {
   expect.assertions(1);
   const server = micro(async req => {
-    const valid = await verify(req, 'wrong-secret');
+    const valid = await verifySecret(req, 'wrong-secret');
     expect(valid).toBe(false);
     return '';
   });
@@ -43,7 +43,7 @@ test('return "false" when secret is wrong', async () => {
 test('return "true" when secret is correct', async () => {
   expect.assertions(1);
   const server = micro(async req => {
-    const valid = await verify(req, 'my-secret');
+    const valid = await verifySecret(req, 'my-secret');
     expect(valid).toBe(true);
     return '';
   });
@@ -64,8 +64,8 @@ test('return "true" when secret is correct', async () => {
 test('should not hang when verify is called more than once', async () => {
   expect.assertions(1);
   const server = micro(async req => {
-    const valid = await verify(req, 'my-secret');
-    await verify(req, 'my-secret');
+    const valid = await verifySecret(req, 'my-secret');
+    await verifySecret(req, 'my-secret');
     expect(valid).toBe(true);
     return '';
   });

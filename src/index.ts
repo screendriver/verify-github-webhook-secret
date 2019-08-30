@@ -1,14 +1,17 @@
 import { IncomingMessage } from 'http';
 import { text } from 'micro';
-import { verifySecret } from './verify';
+import { verify } from './verify';
 
-async function run(req: IncomingMessage, secret: string): Promise<boolean>;
-async function run(
+export async function verifySecret(
+  req: IncomingMessage,
+  secret: string,
+): Promise<boolean>;
+export async function verifySecret(
   body: string,
   secret: string,
   xHubSignature?: string | string[],
 ): Promise<boolean>;
-async function run(
+export async function verifySecret(
   reqOrBody: IncomingMessage | string,
   secret: string,
   xHubSignature?: string | string[],
@@ -22,7 +25,5 @@ async function run(
     body = await text(reqOrBody);
     signature = reqOrBody.headers['x-hub-signature'];
   }
-  return verifySecret(body, secret, signature);
+  return verify(body, secret, signature);
 }
-
-export = run;
