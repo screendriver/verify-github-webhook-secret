@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import { createHmac } from 'crypto';
 
 export function verify(
   body: string,
@@ -8,7 +8,7 @@ export function verify(
   if (!signature) {
     return false;
   }
-  const hmac = crypto.createHmac('sha1', secret);
+  const hmac = createHmac('sha1', secret);
   hmac.update(body);
   const calculated = `sha1=${hmac.digest('hex')}`;
   return signature === calculated;
