@@ -1,13 +1,14 @@
+import test from 'ava';
 import micro from 'micro';
 import listen from 'test-listen';
 import got from 'got';
 import { verifySecret } from '../../src/index';
 
-test('return "false" when "x-hub-signature" header is missing', async () => {
-  expect.assertions(1);
+test('return "false" when "x-hub-signature" header is missing', async t => {
+  t.plan(1);
   const server = micro(async req => {
     const valid = await verifySecret(req, 'my-secret');
-    expect(valid).toBe(false);
+    t.is(valid, false);
     return '';
   });
   const url = await listen(server);
@@ -19,11 +20,11 @@ test('return "false" when "x-hub-signature" header is missing', async () => {
   server.close();
 });
 
-test('return "false" when secret is wrong', async () => {
-  expect.assertions(1);
+test('return "false" when secret is wrong', async t => {
+  t.plan(1);
   const server = micro(async req => {
     const valid = await verifySecret(req, 'wrong-secret');
-    expect(valid).toBe(false);
+    t.is(valid, false);
     return '';
   });
   const url = await listen(server);
@@ -40,11 +41,11 @@ test('return "false" when secret is wrong', async () => {
   server.close();
 });
 
-test('return "true" when secret is correct', async () => {
-  expect.assertions(1);
+test('return "true" when secret is correct', async t => {
+  t.plan(1);
   const server = micro(async req => {
     const valid = await verifySecret(req, 'my-secret');
-    expect(valid).toBe(true);
+    t.is(valid, true);
     return '';
   });
   const url = await listen(server);
@@ -61,12 +62,12 @@ test('return "true" when secret is correct', async () => {
   server.close();
 });
 
-test('should not hang when verify is called more than once', async () => {
-  expect.assertions(1);
+test('should not hang when verify is called more than once', async t => {
+  t.plan(1);
   const server = micro(async req => {
     const valid = await verifySecret(req, 'my-secret');
     await verifySecret(req, 'my-secret');
-    expect(valid).toBe(true);
+    t.is(valid, true);
     return '';
   });
   const url = await listen(server);

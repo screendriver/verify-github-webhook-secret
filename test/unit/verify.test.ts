@@ -1,3 +1,4 @@
+import test from 'ava';
 import { verify } from '../../src/verify';
 
 const body = JSON.stringify({
@@ -5,22 +6,22 @@ const body = JSON.stringify({
 });
 const signature = 'sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553';
 
-test('return "false" when signature is missing', () => {
+test('return "false" when signature is missing', t => {
   const valid = verify(body, 'my-secret');
-  expect(valid).toBe(false);
+  t.is(valid, false);
 });
 
-test('return "false" when signature is an Array', () => {
+test('return "false" when signature is an Array', t => {
   const valid = verify(body, 'wrong-secret', signature);
-  expect(valid).toBe(false);
+  t.is(valid, false);
 });
 
-test('return "false" when secret is wrong', () => {
+test('return "false" when secret is wrong', t => {
   const valid = verify(body, 'wrong-secret', signature);
-  expect(valid).toBe(false);
+  t.is(valid, false);
 });
 
-test('return "true" when secret is correct', () => {
+test('return "true" when secret is correct', t => {
   const valid = verify(body, 'my-secret', signature);
-  expect(valid).toBe(true);
+  t.is(valid, true);
 });
