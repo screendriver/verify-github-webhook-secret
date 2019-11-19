@@ -4,8 +4,8 @@ import listen from 'test-listen';
 import got from 'got';
 import { verifySecret } from '../../src/index';
 
-suite('verify', () => {
-  test('return "false" when "x-hub-signature" header is missing', async () => {
+suite('verify', function() {
+  test('return "false" when "x-hub-signature" header is missing', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
       expect(valid).to.equal(false);
@@ -20,7 +20,7 @@ suite('verify', () => {
     server.close();
   });
 
-  test('return "false" when secret is wrong', async () => {
+  test('return "false" when secret is wrong', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'wrong-secret');
       expect(valid).to.equal(false);
@@ -40,7 +40,7 @@ suite('verify', () => {
     server.close();
   });
 
-  test('return "true" when secret is correct', async () => {
+  test('return "true" when secret is correct', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
       expect(valid).to.equal(true);
@@ -60,7 +60,7 @@ suite('verify', () => {
     server.close();
   });
 
-  test('should not hang when verify is called more than once', async () => {
+  test('should not hang when verify is called more than once', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
       await verifySecret(req, 'my-secret');
