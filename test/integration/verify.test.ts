@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { assert } from 'chai';
 import micro from 'micro';
 import listen from 'test-listen';
 import got from 'got';
@@ -8,7 +8,7 @@ suite('verify', function() {
   test('return "false" when "x-hub-signature" header is missing', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
-      expect(valid).to.equal(false);
+      assert.isFalse(valid);
       return '';
     });
     const url = await listen(server);
@@ -23,7 +23,7 @@ suite('verify', function() {
   test('return "false" when secret is wrong', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'wrong-secret');
-      expect(valid).to.equal(false);
+      assert.isFalse(valid);
       return '';
     });
     const url = await listen(server);
@@ -43,7 +43,7 @@ suite('verify', function() {
   test('return "true" when secret is correct', async function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
-      expect(valid).to.equal(true);
+      assert.isTrue(valid);
       return '';
     });
     const url = await listen(server);
@@ -64,7 +64,7 @@ suite('verify', function() {
     const server = micro(async req => {
       const valid = await verifySecret(req, 'my-secret');
       await verifySecret(req, 'my-secret');
-      expect(valid).to.equal(true);
+      assert.isTrue(valid);
       return '';
     });
     const url = await listen(server);
