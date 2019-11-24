@@ -5,7 +5,6 @@
     "moduleResolution": "node",
     "outDir": "target",
     "removeComments": true,
-    "noEmitOnError": true,
     "importHelpers": true,
     "sourceMap": true,
     "declaration": true,
