@@ -4,9 +4,9 @@ import listen from 'test-listen';
 import got from 'got';
 import { verifySecret } from '../../src/index';
 
-suite('verify', function() {
-  test('return "false" when "x-hub-signature" header is missing', async function() {
-    const server = micro(async req => {
+suite('verify', function () {
+  test('return "false" when "x-hub-signature" header is missing', async function () {
+    const server = micro(async (req) => {
       const valid = await verifySecret(req, 'my-secret');
       assert.isFalse(valid);
       return '';
@@ -20,8 +20,8 @@ suite('verify', function() {
     server.close();
   });
 
-  test('return "false" when secret is wrong', async function() {
-    const server = micro(async req => {
+  test('return "false" when secret is wrong', async function () {
+    const server = micro(async (req) => {
       const valid = await verifySecret(req, 'wrong-secret');
       assert.isFalse(valid);
       return '';
@@ -40,8 +40,8 @@ suite('verify', function() {
     server.close();
   });
 
-  test('return "true" when secret is correct', async function() {
-    const server = micro(async req => {
+  test('return "true" when secret is correct', async function () {
+    const server = micro(async (req) => {
       const valid = await verifySecret(req, 'my-secret');
       assert.isTrue(valid);
       return '';
@@ -60,8 +60,8 @@ suite('verify', function() {
     server.close();
   });
 
-  test('should not hang when verify is called more than once', async function() {
-    const server = micro(async req => {
+  test('should not hang when verify is called more than once', async function () {
+    const server = micro(async (req) => {
       const valid = await verifySecret(req, 'my-secret');
       await verifySecret(req, 'my-secret');
       assert.isTrue(valid);
