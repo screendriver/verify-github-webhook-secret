@@ -16,15 +16,15 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Check source code
-        run: yarn lint
+        run: npm run lint
       - name: Compile source code
-        run: yarn compile
+        run: npm run compile
       - name: Run tests
         run: |
-          yarn test:unit:coverage
-          yarn test:integration
+          npm run test:unit:coverage
+          npm run test:integration
       - name: Upload code coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
