@@ -10,7 +10,7 @@ jobs:
         node: [10, 12, 14]
     name: Node ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
