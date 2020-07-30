@@ -50,7 +50,7 @@
     "eslint-plugin-mocha": "7.0.1",
     "eslint-plugin-prettier": "3.1.4",
     "got": "9.6.0",
-    "mocha": "8.0.1",
+    "mocha": "8.1.0",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
     "test-listen": "1.1.0",
