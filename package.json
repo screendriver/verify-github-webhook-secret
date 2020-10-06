@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "micro": "9.3.4",
-    "tslib": "2.0.1"
+    "tslib": "2.0.2"
   },
   "devDependencies": {
     "@types/chai": "4.2.13",
