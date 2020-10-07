@@ -27,7 +27,7 @@
   "scripts": {
     "clean": "rm -rf target",
     "compile": "tsc --build",
-    "lint": "eslint --ext ts src test",
+    "lint": "eslint src test --ext '.ts'",
     "test:unit": "mocha test/unit/**/*.test.*",
     "test:unit:coverage": "nyc mocha test/unit/**/*.test.*",
     "test:integration": "TS_NODE_PROJECT=tsconfig.base.json mocha test/integration/**/*.test.*"
