@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "micro": "9.3.4",
-    "tslib": "2.0.2"
+    "tslib": "2.0.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
