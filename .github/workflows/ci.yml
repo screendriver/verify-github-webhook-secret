@@ -36,6 +36,4 @@ jobs:
       - name: Compile source code
         run: npm run compile
       - name: Run tests
-        run: |
-          npm run test:unit
-          npm run test:integration
+        run: npm run test:integration
