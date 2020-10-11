@@ -1,7 +1,6 @@
 # verify-github-webhook-secret
 
 [![GitHub Actions status](https://github.com/screendriver/verify-github-webhook-secret/workflows/CI/badge.svg)](https://github.com/screendriver/verify-github-webhook-secret/actions)
-[![TypeScript](https://img.shields.io/badge/types-TypeScript-blue.svg)](https://www.typescriptlang.org)
 [![codecov](https://codecov.io/gh/screendriver/verify-github-webhook-secret/branch/main/graph/badge.svg)](https://codecov.io/gh/screendriver/verify-github-webhook-secret)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
