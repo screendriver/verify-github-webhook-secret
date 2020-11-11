@@ -45,7 +45,7 @@
     "@types/chai": "4.2.14",
     "@types/got": "9.6.11",
     "@types/micro": "7.3.3",
-    "@types/mocha": "8.0.3",
+    "@types/mocha": "8.0.4",
     "@types/test-listen": "1.1.0",
     "@typescript-eslint/eslint-plugin": "4.7.0",
     "@typescript-eslint/parser": "4.7.0",
