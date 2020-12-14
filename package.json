@@ -54,7 +54,7 @@
     "eslint": "7.15.0",
     "eslint-config-prettier": "7.0.0",
     "eslint-plugin-mocha": "8.0.0",
-    "eslint-plugin-prettier": "3.2.0",
+    "eslint-plugin-prettier": "3.3.0",
     "got": "9.6.0",
     "mocha": "8.2.1",
     "prettier": "2.2.1",
