@@ -42,7 +42,7 @@
     "@semantic-release/github": "7.2.0",
     "@semantic-release/npm": "7.0.10",
     "@semantic-release/release-notes-generator": "9.0.1",
-    "@types/chai": "4.2.14",
+    "@types/chai": "4.2.15",
     "@types/got": "9.6.11",
     "@types/micro": "7.3.3",
     "@types/mocha": "8.2.0",
