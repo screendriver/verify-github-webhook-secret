@@ -44,7 +44,7 @@
     "@semantic-release/release-notes-generator": "9.0.2",
     "@types/chai": "4.2.18",
     "@types/got": "9.6.11",
-    "@types/micro": "7.3.4",
+    "@types/micro": "7.3.5",
     "@types/mocha": "8.2.2",
     "@types/test-listen": "1.1.0",
     "@typescript-eslint/eslint-plugin": "4.23.0",
