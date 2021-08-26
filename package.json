@@ -61,6 +61,6 @@
     "semantic-release": "17.4.7",
     "test-listen": "1.1.0",
     "ts-node": "10.2.1",
-    "typescript": "4.3.5"
+    "typescript": "4.4.2"
   }
 }
