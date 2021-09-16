@@ -57,7 +57,7 @@
     "eslint-plugin-prettier": "3.4.1",
     "got": "9.6.0",
     "mocha": "9.1.1",
-    "prettier": "2.4.0",
+    "prettier": "2.4.1",
     "semantic-release": "17.4.7",
     "test-listen": "1.1.0",
     "ts-node": "10.2.1",
