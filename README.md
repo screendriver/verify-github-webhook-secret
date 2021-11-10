@@ -40,11 +40,7 @@ Another way to call the function is directly with the HTTP body and the `x-hub-s
 import { verifySecret } from 'verify-github-webhook-secret';
 
 async function myFunc() {
-  const valid = await verifySecret(
-    '{"foo":"bar"}',
-    'my-secret',
-    'sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553',
-  );
+  const valid = await verifySecret('{"foo":"bar"}', 'my-secret', 'sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553');
   return valid ? 'Allowed' : 'Not allowed';
 }
 ```

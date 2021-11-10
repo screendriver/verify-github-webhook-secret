@@ -2,15 +2,8 @@ import { IncomingMessage } from 'http';
 import { text } from 'micro';
 import { verify } from './verify';
 
-export async function verifySecret(
-  req: IncomingMessage,
-  secret: string,
-): Promise<boolean>;
-export async function verifySecret(
-  body: string,
-  secret: string,
-  xHubSignature?: string | string[],
-): Promise<boolean>;
+export async function verifySecret(req: IncomingMessage, secret: string): Promise<boolean>;
+export async function verifySecret(body: string, secret: string, xHubSignature?: string | string[]): Promise<boolean>;
 export async function verifySecret(
   reqOrBody: IncomingMessage | string,
   secret: string,
