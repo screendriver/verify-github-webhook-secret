@@ -27,9 +27,9 @@
   "scripts": {
     "compile": "tsc --build",
     "lint": "eslint src test --ext '.ts'",
-    "test:unit": "mocha test/unit/**/*.test.*",
-    "test:unit:coverage": "c8 mocha test/unit/**/*.test.*",
-    "test:integration": "TS_NODE_PROJECT=tsconfig.base.json mocha test/integration/**/*.test.*"
+    "test:unit": "ava test/unit/**/*.test.*",
+    "test:unit:coverage": "c8 ava test/unit/**/*.test.*",
+    "test:integration": "ava test/integration/**/*.test.*"
   },
   "dependencies": {
     "micro": "9.3.4",
@@ -51,6 +51,7 @@
     "c8": "7.10.0",
     "eslint": "8.2.0",
     "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-ava": "13.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "got": "9.6.0",
     "prettier": "2.4.1",
