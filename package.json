@@ -27,9 +27,9 @@
 	"scripts": {
 		"compile": "tsc --build",
 		"lint": "eslint src test --ext '.ts'",
-		"test:unit": "ava test/unit/**/*.test.*",
-		"test:unit:coverage": "c8 ava test/unit/**/*.test.*",
-		"test:integration": "ava test/integration/**/*.test.*"
+		"test:unit": "vitest --dir test/unit/",
+		"test:unit:coverage": "vitest run --coverage --dir test/unit/",
+		"test:integration": "vitest run --dir test/integration/"
 	},
 	"dependencies": {
 		"micro": "9.3.4",

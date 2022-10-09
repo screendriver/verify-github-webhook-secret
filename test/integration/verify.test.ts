@@ -1,14 +1,16 @@
-import test from "ava";
+import { test, assert, expect } from "vitest";
 import micro from "micro";
 import listen from "test-listen";
 import got from "got";
 import { verifySecret } from "../../src/index";
 
-test('return "false" when "x-hub-signature" header is missing', async (t) => {
-	t.plan(1);
+test('return "false" when "x-hub-signature" header is missing', async () => {
+	let assertionCalled = false;
+
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
-		t.false(valid);
+		assert.isFalse(valid);
+		assertionCalled = true;
 		return "";
 	});
 	const url = await listen(server);
@@ -18,13 +20,17 @@ test('return "false" when "x-hub-signature" header is missing', async (t) => {
 		body: {},
 	});
 	server.close();
+
+	assert.isTrue(assertionCalled);
 });
 
-test('return "false" when secret is wrong', async (t) => {
-	t.plan(1);
+test('return "false" when secret is wrong', async () => {
+	let assertionCalled = false;
+
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "wrong-secret");
-		t.false(valid);
+		assert.isFalse(valid);
+		assertionCalled = true;
 		return "";
 	});
 	const url = await listen(server);
@@ -39,13 +45,17 @@ test('return "false" when secret is wrong', async (t) => {
 		},
 	});
 	server.close();
+
+	assert.isTrue(assertionCalled);
 });
 
-test('return "true" when secret is correct', async (t) => {
-	t.plan(1);
+test('return "true" when secret is correct', async () => {
+	let assertionCalled = false;
+
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
-		t.true(valid);
+		assert.isTrue(valid);
+		assertionCalled = true;
 		return "";
 	});
 	const url = await listen(server);
@@ -60,14 +70,18 @@ test('return "true" when secret is correct', async (t) => {
 		},
 	});
 	server.close();
+
+	assert.isTrue(assertionCalled);
 });
 
-test("should not hang when verify is called more than once", async (t) => {
-	t.plan(1);
+test("should not hang when verify is called more than once", async () => {
+	let assertionCalled = false;
+
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
 		await verifySecret(req, "my-secret");
-		t.true(valid);
+		assert.isTrue(valid);
+		assertionCalled = true;
 		return "";
 	});
 	const url = await listen(server);
@@ -82,4 +96,6 @@ test("should not hang when verify is called more than once", async (t) => {
 		},
 	});
 	server.close();
+
+	assert.isTrue(assertionCalled);
 });
