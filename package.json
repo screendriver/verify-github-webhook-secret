@@ -26,7 +26,7 @@
 	],
 	"scripts": {
 		"compile": "tsc --build",
-		"lint": "eslint src test --ext '.ts'",
+		"lint": "eslint . --ext '.ts'",
 		"test:unit": "vitest --dir test/unit/",
 		"test:unit:coverage": "vitest run --coverage --dir test/unit/",
 		"test:integration": "vitest run --dir test/integration/"
