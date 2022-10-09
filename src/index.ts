@@ -8,7 +8,7 @@ export async function verifySecret(
 	reqOrBody: IncomingMessage | string,
 	secret: string,
 	xHubSignature?: string | string[]
-) {
+): Promise<boolean> {
 	let body: string;
 	let signature: string | string[] | undefined;
 	if (typeof reqOrBody === "string") {
@@ -18,5 +18,6 @@ export async function verifySecret(
 		body = await text(reqOrBody);
 		signature = reqOrBody.headers["x-hub-signature"];
 	}
+
 	return verify(body, secret, signature);
 }
