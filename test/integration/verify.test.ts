@@ -1,4 +1,4 @@
-import { test, assert, expect } from "vitest";
+import { test, assert } from "vitest";
 import micro from "micro";
 import listen from "test-listen";
 import got from "got";
