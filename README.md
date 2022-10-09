@@ -25,22 +25,22 @@ The exported function needs a [http.IncomingMessage](https://nodejs.org/api/http
 You can use it for example with [micro](https://github.com/zeit/micro) as follows:
 
 ```ts
-import micro from 'micro';
-import { verifySecret } from 'verify-github-webhook-secret';
+import micro from "micro";
+import { verifySecret } from "verify-github-webhook-secret";
 
 const server = micro(async (req) => {
-	const valid = await verifySecret(req, 'my-secret');
-	return valid ? 'Allowed' : 'Not allowed';
+	const valid = await verifySecret(req, "my-secret");
+	return valid ? "Allowed" : "Not allowed";
 });
 ```
 
 Another way to call the function is directly with the HTTP body and the `x-hub-signature` HTTP header. This is useful in an scenario where you don't have an `IncomingMessage` like in some [serverless](https://en.wikipedia.org/wiki/Serverless_computing) environments.
 
 ```ts
-import { verifySecret } from 'verify-github-webhook-secret';
+import { verifySecret } from "verify-github-webhook-secret";
 
 async function myFunc() {
-	const valid = await verifySecret('{"foo":"bar"}', 'my-secret', 'sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553');
-	return valid ? 'Allowed' : 'Not allowed';
+	const valid = await verifySecret('{"foo":"bar"}', "my-secret", "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553");
+	return valid ? "Allowed" : "Not allowed";
 }
 ```
