@@ -27,9 +27,9 @@
 	"scripts": {
 		"compile": "tsc --build",
 		"lint": "eslint . --ext '.ts'",
-		"test:unit": "vitest --dir test/unit/",
-		"test:unit:coverage": "vitest run --coverage --dir test/unit/",
-		"test:integration": "vitest run --dir test/integration/"
+		"test:unit": "NODE_OPTIONS='--loader tsx --no-warnings' uvu 'test/unit/' '.*\\.test\\.ts$'",
+		"test:unit:coverage": "c8 npm run test:unit",
+		"test:integration": "NODE_OPTIONS='--loader tsx --no-warnings' uvu 'test/integration/' '.*\\.test\\.ts$'"
 	},
 	"dependencies": {
 		"micro": "9.3.4",

@@ -1,4 +1,5 @@
-import { test, assert } from "vitest";
+import { test } from "uvu";
+import * as assert from "uvu/assert";
 import micro from "micro";
 import listen from "test-listen";
 import got from "got";
@@ -9,7 +10,7 @@ test('return "false" when "x-hub-signature" header is missing', async () => {
 
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
-		assert.isFalse(valid);
+		assert.equal(valid, false);
 		assertionCalled = true;
 		return "";
 	});
@@ -21,7 +22,7 @@ test('return "false" when "x-hub-signature" header is missing', async () => {
 	});
 	server.close();
 
-	assert.isTrue(assertionCalled);
+	assert.equal(assertionCalled, true);
 });
 
 test('return "false" when secret is wrong', async () => {
@@ -29,7 +30,7 @@ test('return "false" when secret is wrong', async () => {
 
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "wrong-secret");
-		assert.isFalse(valid);
+		assert.equal(valid, false);
 		assertionCalled = true;
 		return "";
 	});
@@ -46,7 +47,7 @@ test('return "false" when secret is wrong', async () => {
 	});
 	server.close();
 
-	assert.isTrue(assertionCalled);
+	assert.equal(assertionCalled, true);
 });
 
 test('return "true" when secret is correct', async () => {
@@ -54,7 +55,7 @@ test('return "true" when secret is correct', async () => {
 
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
-		assert.isTrue(valid);
+		assert.equal(valid, true);
 		assertionCalled = true;
 		return "";
 	});
@@ -71,7 +72,7 @@ test('return "true" when secret is correct', async () => {
 	});
 	server.close();
 
-	assert.isTrue(assertionCalled);
+	assert.equal(assertionCalled, true);
 });
 
 test("should not hang when verify is called more than once", async () => {
@@ -80,7 +81,7 @@ test("should not hang when verify is called more than once", async () => {
 	const server = micro(async (req) => {
 		const valid = await verifySecret(req, "my-secret");
 		await verifySecret(req, "my-secret");
-		assert.isTrue(valid);
+		assert.equal(valid, true);
 		assertionCalled = true;
 		return "";
 	});
@@ -97,5 +98,7 @@ test("should not hang when verify is called more than once", async () => {
 	});
 	server.close();
 
-	assert.isTrue(assertionCalled);
+	assert.equal(assertionCalled, true);
 });
+
+test.run();
