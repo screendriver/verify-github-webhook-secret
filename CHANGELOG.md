@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/screendriver/verify-github-webhook-secret/compare/v2.0.8...v2.0.9) (2023-01-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tslib to v2.5.0 ([83f6fe5](https://github.com/screendriver/verify-github-webhook-secret/commit/83f6fe50e4898e5df8f23c3bb68721b70fbdf695))
+
 ## [2.0.8](https://github.com/screendriver/verify-github-webhook-secret/compare/v2.0.7...v2.0.8) (2022-10-31)
 
 
