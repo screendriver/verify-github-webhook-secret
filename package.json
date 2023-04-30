@@ -56,7 +56,7 @@
 		"prettier": "2.8.8",
 		"semantic-release": "21.0.2",
 		"test-listen": "1.1.0",
-		"tsx": "3.12.6",
+		"tsx": "3.12.7",
 		"typescript": "5.0.4",
 		"uvu": "0.5.6"
 	}
