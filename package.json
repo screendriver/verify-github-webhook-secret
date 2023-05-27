@@ -52,7 +52,7 @@
 		"eslint": "8.41.0",
 		"eslint-config-prettier": "8.8.0",
 		"eslint-plugin-prettier": "4.2.1",
-		"got": "9.6.0",
+		"got": "12.6.1",
 		"prettier": "2.8.8",
 		"semantic-release": "21.0.2",
 		"test-listen": "1.1.0",
