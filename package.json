@@ -57,7 +57,7 @@
 		"semantic-release": "21.0.6",
 		"test-listen": "1.1.0",
 		"tsx": "3.12.7",
-		"typescript": "5.1.5",
+		"typescript": "5.1.6",
 		"uvu": "0.5.6"
 	}
 }
