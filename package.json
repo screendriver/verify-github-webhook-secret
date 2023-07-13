@@ -2,8 +2,14 @@
 	"name": "verify-github-webhook-secret",
 	"version": "2.0.9",
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
-	"main": "./target/src/index.js",
-	"types": "./target/src/index.d.ts",
+	"type": "module",
+	"engines": {
+		"node": ">= 16.0.0"
+	},
+	"exports": {
+		"types": "./target/src/index.d.ts",
+		"default": "./target/src/index.js"
+	},
 	"author": "Christian Rackerseder <git@echooff.de>",
 	"license": "MIT",
 	"repository": {
@@ -27,12 +33,12 @@
 	"scripts": {
 		"compile": "tsc --build",
 		"lint": "eslint . --ext '.ts'",
-		"test:unit": "NODE_OPTIONS='--loader tsx --no-warnings' uvu 'test/unit/' '.*\\.test\\.ts$'",
+		"test:unit": "NODE_OPTIONS='--loader=tsx --no-warnings' ava",
 		"test:unit:coverage": "c8 npm run test:unit",
-		"test:integration": "NODE_OPTIONS='--loader tsx --no-warnings' uvu 'test/integration/' '.*\\.test\\.ts$'"
+		"test:integration": "NODE_OPTIONS='--loader=tsx --no-warnings' ava --config ava.config.integration.mjs"
 	},
 	"dependencies": {
-		"micro": "9.3.4",
+		"micro": "10.0.1",
 		"tslib": "2.6.0"
 	},
 	"devDependencies": {
@@ -42,22 +48,22 @@
 		"@semantic-release/github": "9.0.3",
 		"@semantic-release/npm": "10.0.4",
 		"@semantic-release/release-notes-generator": "11.0.4",
-		"@types/got": "9.6.12",
-		"@types/micro": "7.3.7",
+		"@types/micro": "10.0.0",
 		"@types/test-listen": "1.1.0",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
 		"@typescript-eslint/parser": "5.62.0",
+		"ava": "5.3.1",
 		"c8": "8.0.0",
 		"esbuild": "0.18.12",
 		"eslint": "8.44.0",
 		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-ava": "14.0.0",
 		"eslint-plugin-prettier": "4.2.1",
-		"got": "9.6.0",
+		"got": "13.0.0",
 		"prettier": "2.8.8",
 		"semantic-release": "21.0.7",
 		"test-listen": "1.1.0",
 		"tsx": "3.12.7",
-		"typescript": "5.1.6",
-		"uvu": "0.5.6"
+		"typescript": "5.1.6"
 	}
 }
