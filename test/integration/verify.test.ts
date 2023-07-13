@@ -22,7 +22,7 @@ const testVerifySecretMacro = test.macro(async (t, options: TestVerifySecretOpti
 			t.is(valid, isValid);
 
 			return "";
-		})
+		}),
 	);
 
 	try {
@@ -46,7 +46,7 @@ test(
 	'returns "false" when "x-hub-signature" header is missing',
 	testVerifySecretMacro,
 	{ secret: "my-secret", requestBodyJson: {} },
-	false
+	false,
 );
 
 test(
@@ -57,7 +57,7 @@ test(
 		requestBodyJson: { foo: "bar" },
 		xHubSignatureHeader: "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
 	},
-	false
+	false,
 );
 
 test(
@@ -68,7 +68,7 @@ test(
 		requestBodyJson: { foo: "bar" },
 		xHubSignatureHeader: "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
 	},
-	true
+	true,
 );
 
 test("should not hang when verify is called more than once", async (t) => {
@@ -80,7 +80,7 @@ test("should not hang when verify is called more than once", async (t) => {
 			t.true(valid);
 
 			return "";
-		})
+		}),
 	);
 
 	try {
