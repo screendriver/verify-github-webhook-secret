@@ -1,6 +1,5 @@
-import { test } from "uvu";
-import * as assert from "uvu/assert";
-import { verify } from "../../src/verify";
+import test from "ava";
+import { verify } from "../../src/verify.js";
 
 const body = JSON.stringify({
 	foo: "bar",
@@ -8,28 +7,26 @@ const body = JSON.stringify({
 
 const signature = "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553";
 
-test('return "false" when signature is missing', () => {
+test('return "false" when signature is missing', (t) => {
 	const valid = verify(body, "my-secret");
 
-	assert.equal(valid, false);
+	t.false(valid);
 });
 
-test('return "false" when signature is an Array', () => {
+test('return "false" when signature is an Array', (t) => {
 	const valid = verify(body, "wrong-secret", signature);
 
-	assert.equal(valid, false);
+	t.false(valid);
 });
 
-test('return "false" when secret is wrong', () => {
+test('return "false" when secret is wrong', (t) => {
 	const valid = verify(body, "wrong-secret", signature);
 
-	assert.equal(valid, false);
+	t.false(valid);
 });
 
-test('return "true" when secret is correct', () => {
+test('return "true" when secret is correct', (t) => {
 	const valid = verify(body, "my-secret", signature);
 
-	assert.equal(valid, true);
+	t.true(valid);
 });
-
-test.run();

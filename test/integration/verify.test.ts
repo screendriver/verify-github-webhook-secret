@@ -1,104 +1,96 @@
-import { test } from "uvu";
-import * as assert from "uvu/assert";
+import test from "ava";
+import http from "node:http";
 import micro from "micro";
 import listen from "test-listen";
 import got from "got";
-import { verifySecret } from "../../src/index";
+import type { Headers } from "got";
+import { verifySecret } from "../../src/index.js";
 
-test('return "false" when "x-hub-signature" header is missing', async () => {
-	let assertionCalled = false;
+interface TestVerifySecretOptions {
+	readonly secret: string;
+	readonly requestBodyJson: unknown;
+	readonly xHubSignatureHeader?: string;
+}
 
-	const server = micro(async (req) => {
-		const valid = await verifySecret(req, "my-secret");
-		assert.equal(valid, false);
-		assertionCalled = true;
-		return "";
-	});
-	const url = await listen(server);
-	await got(url, {
-		method: "POST",
-		json: true,
-		body: {},
-	});
-	server.close();
+const testVerifySecretMacro = test.macro(async (t, options: TestVerifySecretOptions, isValid: boolean) => {
+	const { secret, requestBodyJson, xHubSignatureHeader } = options;
 
-	assert.equal(assertionCalled, true);
+	const server = new http.Server(
+		micro.serve(async (request) => {
+			const valid = await verifySecret(request, secret);
+
+			t.is(valid, isValid);
+
+			return "";
+		})
+	);
+
+	try {
+		const url = await listen(server);
+		let headers: Headers | undefined;
+
+		if (xHubSignatureHeader !== undefined) {
+			headers = { "X-Hub-Signature": xHubSignatureHeader };
+		}
+
+		await got.post(url, {
+			headers,
+			json: requestBodyJson,
+		});
+	} finally {
+		server.close();
+	}
 });
 
-test('return "false" when secret is wrong', async () => {
-	let assertionCalled = false;
+test(
+	'returns "false" when "x-hub-signature" header is missing',
+	testVerifySecretMacro,
+	{ secret: "my-secret", requestBodyJson: {} },
+	false
+);
 
-	const server = micro(async (req) => {
-		const valid = await verifySecret(req, "wrong-secret");
-		assert.equal(valid, false);
-		assertionCalled = true;
-		return "";
-	});
-	const url = await listen(server);
-	await got(url, {
-		method: "POST",
-		headers: {
-			"X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
-		},
-		json: true,
-		body: {
-			foo: "bar",
-		},
-	});
-	server.close();
+test(
+	'returns "false" when secret is wrong',
+	testVerifySecretMacro,
+	{
+		secret: "wrong-secret",
+		requestBodyJson: { foo: "bar" },
+		xHubSignatureHeader: "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
+	},
+	false
+);
 
-	assert.equal(assertionCalled, true);
+test(
+	'returns "true" when secret is correct',
+	testVerifySecretMacro,
+	{
+		secret: "my-secret",
+		requestBodyJson: { foo: "bar" },
+		xHubSignatureHeader: "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
+	},
+	true
+);
+
+test("should not hang when verify is called more than once", async (t) => {
+	const server = new http.Server(
+		micro.serve(async (request) => {
+			const valid = await verifySecret(request, "my-secret");
+			await verifySecret(request, "my-secret");
+
+			t.true(valid);
+
+			return "";
+		})
+	);
+
+	try {
+		const url = await listen(server);
+
+		await got.post(url, {
+			headers: { "X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553" },
+			json: { foo: "bar" },
+		});
+	} finally {
+		server.close();
+	}
 });
-
-test('return "true" when secret is correct', async () => {
-	let assertionCalled = false;
-
-	const server = micro(async (req) => {
-		const valid = await verifySecret(req, "my-secret");
-		assert.equal(valid, true);
-		assertionCalled = true;
-		return "";
-	});
-	const url = await listen(server);
-	await got(url, {
-		method: "POST",
-		headers: {
-			"X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
-		},
-		json: true,
-		body: {
-			foo: "bar",
-		},
-	});
-	server.close();
-
-	assert.equal(assertionCalled, true);
-});
-
-test("should not hang when verify is called more than once", async () => {
-	let assertionCalled = false;
-
-	const server = micro(async (req) => {
-		const valid = await verifySecret(req, "my-secret");
-		await verifySecret(req, "my-secret");
-		assert.equal(valid, true);
-		assertionCalled = true;
-		return "";
-	});
-	const url = await listen(server);
-	await got(url, {
-		method: "POST",
-		headers: {
-			"X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553",
-		},
-		json: true,
-		body: {
-			foo: "bar",
-		},
-	});
-	server.close();
-
-	assert.equal(assertionCalled, true);
-});
-
-test.run();
