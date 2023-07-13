@@ -32,7 +32,7 @@
 		"test:integration": "NODE_OPTIONS='--loader tsx --no-warnings' uvu 'test/integration/' '.*\\.test\\.ts$'"
 	},
 	"dependencies": {
-		"micro": "9.3.4",
+		"micro": "10.0.1",
 		"tslib": "2.6.0"
 	},
 	"devDependencies": {
@@ -43,7 +43,7 @@
 		"@semantic-release/npm": "10.0.4",
 		"@semantic-release/release-notes-generator": "11.0.4",
 		"@types/got": "9.6.12",
-		"@types/micro": "7.3.7",
+		"@types/micro": "10.0.0",
 		"@types/test-listen": "1.1.0",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
 		"@typescript-eslint/parser": "5.62.0",
