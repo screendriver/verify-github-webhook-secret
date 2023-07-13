@@ -7,7 +7,7 @@ export async function verifySecret(body: string, secret: string, xHubSignature?:
 export async function verifySecret(
 	reqOrBody: IncomingMessage | string,
 	secret: string,
-	xHubSignature?: string | string[]
+	xHubSignature?: string | string[],
 ): Promise<boolean> {
 	let body: string;
 	let signature: string | string[] | undefined;
