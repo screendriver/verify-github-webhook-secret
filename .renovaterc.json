@@ -1,7 +1,7 @@
 {
 	"extends": ["config:base"],
 	"labels": ["renovate"],
-	"rebaseStalePrs": false,
+	"semanticCommits": "disabled",
 	"lockFileMaintenance": {
 		"enabled": true,
 		"automerge": true
