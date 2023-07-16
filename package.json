@@ -63,7 +63,6 @@
 		"prettier": "3.0.0",
 		"semantic-release": "21.0.7",
 		"test-listen": "1.1.0",
-		"tsx": "3.12.7",
 		"typescript": "5.1.6"
 	}
 }
