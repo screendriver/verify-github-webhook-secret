@@ -19,6 +19,8 @@ jobs:
               with:
                   node-version: 18
             - run: npm ci
+            - name: Compile source code
+              run: npm run compile
             - name: Run unit tests
               run: npm run test:unit:coverage
             - name: Upload code coverage to Codecov
