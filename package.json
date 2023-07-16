@@ -43,12 +43,6 @@
 	},
 	"devDependencies": {
 		"@ava/typescript": "4.1.0",
-		"@semantic-release/changelog": "6.0.3",
-		"@semantic-release/commit-analyzer": "10.0.1",
-		"@semantic-release/git": "10.0.1",
-		"@semantic-release/github": "9.0.4",
-		"@semantic-release/npm": "10.0.4",
-		"@semantic-release/release-notes-generator": "11.0.4",
 		"@types/test-listen": "1.1.0",
 		"@typescript-eslint/eslint-plugin": "6.0.0",
 		"@typescript-eslint/parser": "6.0.0",
@@ -62,7 +56,6 @@
 		"got": "13.0.0",
 		"prettier": "3.0.0",
 		"release-it": "16.1.2",
-		"semantic-release": "21.0.7",
 		"test-listen": "1.1.0",
 		"typescript": "5.1.6"
 	}
