@@ -5,10 +5,10 @@
 	"statements": 100,
 	"branches": 100,
 	"instrument": true,
-	"extension": [".ts"],
 	"reporter": ["lcov", "text-summary", "clover"],
 	"reportDir": "./target/coverage",
 	"tempDirectory": "./target/c8_output",
-	"include": ["src/**/*"],
-	"exclude": ["src/index.ts"]
+	"src": "src",
+	"include": ["target/src/**/*"],
+	"exclude": ["target/src/index.js"]
 }
