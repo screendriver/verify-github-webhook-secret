@@ -1,33 +1,30 @@
 import test from "ava";
-import http from "node:http";
+import type { OutgoingHttpHeaders } from "node:http";
 import micro from "micro";
 import listen from "test-listen";
 import got from "got";
-import type { Headers } from "got";
-import { verifySecret } from "../../src/index.js";
+import { verifySecret } from "../../src/index";
 
 interface TestVerifySecretOptions {
 	readonly secret: string;
-	readonly requestBodyJson: unknown;
+	readonly requestBodyJson: object;
 	readonly xHubSignatureHeader?: string;
 }
 
 const testVerifySecretMacro = test.macro(async (t, options: TestVerifySecretOptions, isValid: boolean) => {
 	const { secret, requestBodyJson, xHubSignatureHeader } = options;
 
-	const server = new http.Server(
-		micro.serve(async (request) => {
-			const valid = await verifySecret(request, secret);
+	const server = micro(async (request) => {
+		const valid = await verifySecret(request, secret);
 
-			t.is(valid, isValid);
+		t.is(valid, isValid);
 
-			return "";
-		}),
-	);
+		return "";
+	});
 
 	try {
 		const url = await listen(server);
-		let headers: Headers | undefined;
+		let headers: OutgoingHttpHeaders | undefined;
 
 		if (xHubSignatureHeader !== undefined) {
 			headers = { "X-Hub-Signature": xHubSignatureHeader };
@@ -35,7 +32,8 @@ const testVerifySecretMacro = test.macro(async (t, options: TestVerifySecretOpti
 
 		await got.post(url, {
 			headers,
-			json: requestBodyJson,
+			json: true,
+			body: requestBodyJson,
 		});
 	} finally {
 		server.close();
@@ -72,23 +70,22 @@ test(
 );
 
 test("should not hang when verify is called more than once", async (t) => {
-	const server = new http.Server(
-		micro.serve(async (request) => {
-			const valid = await verifySecret(request, "my-secret");
-			await verifySecret(request, "my-secret");
+	const server = micro(async (request) => {
+		const valid = await verifySecret(request, "my-secret");
+		await verifySecret(request, "my-secret");
 
-			t.true(valid);
+		t.true(valid);
 
-			return "";
-		}),
-	);
+		return "";
+	});
 
 	try {
 		const url = await listen(server);
 
 		await got.post(url, {
 			headers: { "X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553" },
-			json: { foo: "bar" },
+			json: true,
+			body: { foo: "bar" },
 		});
 	} finally {
 		server.close();
