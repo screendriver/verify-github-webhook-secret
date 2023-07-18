@@ -1,5 +1,5 @@
 import test from "ava";
-import { verify } from "../../src/verify";
+import { verify } from "../../src/verify.js";
 
 const body = JSON.stringify({
 	foo: "bar",
