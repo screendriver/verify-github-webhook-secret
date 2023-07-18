@@ -1,9 +1,15 @@
 {
 	"name": "verify-github-webhook-secret",
-	"version": "2.0.11",
+	"version": "3.0.1",
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
-	"main": "./target/src/index.js",
-	"types": "./target/src/index.d.ts",
+	"type": "module",
+	"engines": {
+		"node": ">= 16.0.0"
+	},
+	"exports": {
+		"types": "./target/src/index.d.ts",
+		"default": "./target/src/index.js"
+	},
 	"author": "Christian Rackerseder <git@echooff.de>",
 	"license": "MIT",
 	"repository": {
@@ -35,7 +41,7 @@
 		"release": "release-it"
 	},
 	"dependencies": {
-		"micro": "9.3.4",
+		"micro": "10.0.1",
 		"tslib": "2.6.0"
 	},
 	"devDependencies": {
@@ -43,8 +49,6 @@
 		"@types/test-listen": "1.1.0",
 		"@typescript-eslint/eslint-plugin": "6.1.0",
 		"@typescript-eslint/parser": "6.1.0",
-		"@types/micro": "7.3.7",
-		"@types/got": "9.6.12",
 		"auto-changelog": "2.4.0",
 		"ava": "5.3.1",
 		"c8": "8.0.0",
@@ -53,7 +57,7 @@
 		"eslint-config-prettier": "8.8.0",
 		"eslint-plugin-ava": "14.0.0",
 		"eslint-plugin-prettier": "5.0.0",
-		"got": "9.6.0",
+		"got": "13.0.0",
 		"prettier": "3.0.0",
 		"release-it": "16.1.2",
 		"test-listen": "1.1.0",
