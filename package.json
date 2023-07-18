@@ -2,9 +2,14 @@
 	"name": "verify-github-webhook-secret",
 	"version": "2.0.11",
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
-	"main": "./target/src/index.js",
-	"types": "./target/src/index.d.ts",
 	"type": "module",
+	"engines": {
+		"node": ">= 16.0.0"
+	},
+	"exports": {
+		"types": "./target/src/index.d.ts",
+		"default": "./target/src/index.js"
+	},
 	"author": "Christian Rackerseder <git@echooff.de>",
 	"license": "MIT",
 	"repository": {
