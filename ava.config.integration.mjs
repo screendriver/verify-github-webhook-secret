@@ -1,4 +1,4 @@
-import defaultConfig from "./ava.config.js";
+import defaultConfig from "./ava.config.mjs";
 
 export default {
 	...defaultConfig,
