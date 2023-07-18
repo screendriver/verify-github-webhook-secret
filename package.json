@@ -1,6 +1,6 @@
 {
 	"name": "verify-github-webhook-secret",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
 	"type": "module",
 	"engines": {
