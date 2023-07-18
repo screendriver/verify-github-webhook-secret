@@ -4,6 +4,7 @@
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
 	"main": "./target/src/index.js",
 	"types": "./target/src/index.d.ts",
+	"type": "module",
 	"author": "Christian Rackerseder <git@echooff.de>",
 	"license": "MIT",
 	"repository": {
