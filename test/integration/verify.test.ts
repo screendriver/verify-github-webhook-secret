@@ -1,5 +1,4 @@
 import test from "ava";
-import http from "node:http";
 import type { OutgoingHttpHeaders } from "node:http";
 import micro from "micro";
 import listen from "test-listen";
@@ -15,15 +14,13 @@ interface TestVerifySecretOptions {
 const testVerifySecretMacro = test.macro(async (t, options: TestVerifySecretOptions, isValid: boolean) => {
 	const { secret, requestBodyJson, xHubSignatureHeader } = options;
 
-	const server = new http.Server(
-		micro.serve(async (request) => {
-			const valid = await verifySecret(request, secret);
+	const server = micro(async (request) => {
+		const valid = await verifySecret(request, secret);
 
-			t.is(valid, isValid);
+		t.is(valid, isValid);
 
-			return "";
-		}),
-	);
+		return "";
+	});
 
 	try {
 		const url = await listen(server);
@@ -73,16 +70,14 @@ test(
 );
 
 test("should not hang when verify is called more than once", async (t) => {
-	const server = new http.Server(
-		micro.serve(async (request) => {
-			const valid = await verifySecret(request, "my-secret");
-			await verifySecret(request, "my-secret");
+	const server = micro(async (request) => {
+		const valid = await verifySecret(request, "my-secret");
+		await verifySecret(request, "my-secret");
 
-			t.true(valid);
+		t.true(valid);
 
-			return "";
-		}),
-	);
+		return "";
+	});
 
 	try {
 		const url = await listen(server);
