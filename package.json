@@ -34,8 +34,10 @@
 		"clean": "rm -rf target",
 		"compile": "tsc --build",
 		"lint": "eslint . --ext '.ts'",
+		"pretest:unit": "npm run compile",
 		"test:unit": "ava",
 		"test:unit:coverage": "c8 npm run test:unit",
+		"pretest:integration": "npm run compile",
 		"test:integration": "ava --config ava.config.integration.mjs",
 		"release:dry": "release-it --dry-run --no-npm",
 		"release": "release-it"
