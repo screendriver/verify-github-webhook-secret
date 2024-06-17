@@ -4,7 +4,7 @@
 	"description": "Verifies the secret that is sent in GitHub Webhooks",
 	"type": "module",
 	"engines": {
-		"node": ">= 16.0.0"
+		"node": ">= 18"
 	},
 	"exports": {
 		"types": "./target/src/index.d.ts",
