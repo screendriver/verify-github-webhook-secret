@@ -61,7 +61,7 @@
 		"eslint-plugin-prettier": "5.5.4",
 		"got": "14.4.9",
 		"prettier": "3.6.2",
-		"release-it": "19.0.4",
+		"release-it": "19.0.5",
 		"test-listen": "1.1.0",
 		"typescript": "5.9.2"
 	}
