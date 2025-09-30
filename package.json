@@ -63,6 +63,6 @@
 		"prettier": "3.6.2",
 		"release-it": "19.0.5",
 		"test-listen": "1.1.0",
-		"typescript": "5.9.2"
+		"typescript": "5.9.3"
 	}
 }
