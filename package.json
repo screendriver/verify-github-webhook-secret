@@ -59,7 +59,7 @@
 		"eslint-config-prettier": "9.1.2",
 		"eslint-plugin-ava": "14.0.0",
 		"eslint-plugin-prettier": "5.5.4",
-		"got": "14.6.1",
+		"got": "14.6.2",
 		"prettier": "3.6.2",
 		"release-it": "19.0.5",
 		"test-listen": "1.1.0",
