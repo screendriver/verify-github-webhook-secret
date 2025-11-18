@@ -49,8 +49,8 @@
 	"devDependencies": {
 		"@ava/typescript": "6.0.0",
 		"@types/test-listen": "1.1.2",
-		"@typescript-eslint/eslint-plugin": "8.46.4",
-		"@typescript-eslint/parser": "8.46.4",
+		"@typescript-eslint/eslint-plugin": "8.47.0",
+		"@typescript-eslint/parser": "8.47.0",
 		"auto-changelog": "2.5.0",
 		"ava": "6.4.1",
 		"c8": "10.1.3",
