@@ -1,8 +1,8 @@
 import assert from "node:assert";
 import http from "node:http";
+import ky from "ky";
 import micro from "micro";
 import listen from "test-listen";
-import gotClient, { type Headers } from "got";
 import { test } from "mocha";
 import { verifySecret } from "../../src/index.ts";
 
@@ -26,13 +26,13 @@ async function verifySecretForRequest(options: TestVerifySecretOptions): Promise
 
 	try {
 		const url = await listen(server);
-		let headers: Headers | undefined;
+		let headers: HeadersInit | undefined;
 
 		if (xHubSignatureHeader !== undefined) {
 			headers = { "X-Hub-Signature": xHubSignatureHeader };
 		}
 
-		await gotClient.post(url, {
+		await ky.post(url, {
 			headers,
 			json: requestBodyJson
 		});
@@ -83,7 +83,7 @@ test("should not hang when verify is called more than once", async () => {
 	try {
 		const url = await listen(server);
 
-		await gotClient.post(url, {
+		await ky.post(url, {
 			headers: { "X-Hub-Signature": "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553" },
 			json: { foo: "bar" }
 		});
