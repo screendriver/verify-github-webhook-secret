@@ -12,12 +12,22 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
 		"plugin:prettier/recommended",
-		"plugin:ava/recommended"
+		"plugin:mocha/recommended"
 	],
-	"plugins": ["@typescript-eslint", "ava"],
+	"plugins": ["@typescript-eslint", "mocha"],
 	"env": {
-		"node": true
+		"node": true,
+		"mocha": true
 	},
+	"overrides": [
+		{
+			"files": ["test/**/*.ts"],
+			"rules": {
+				"mocha/no-global-tests": "off",
+				"mocha/no-mocha-arrows": "off"
+			}
+		}
+	],
 	"rules": {
 		"@typescript-eslint/explicit-function-return-type": [
 			"error",
@@ -25,7 +35,6 @@
 				"allowExpressions": true,
 				"allowTypedFunctionExpressions": true
 			}
-		],
-		"ava/no-ignored-test-files": "off"
+		]
 	}
 }
