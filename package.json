@@ -30,16 +30,6 @@
 		"target/src/**/*.js.map",
 		"target/src/**/*.d.ts"
 	],
-	"scripts": {
-		"clean": "rm -rf target",
-		"compile": "tsc --build",
-		"lint": "eslint . --ext '.ts'",
-		"test:unit": "mocha --config mocha.config.json --spec './test/unit/**/*.test.ts'",
-		"test:unit:coverage": "c8 npm run test:unit",
-		"test:integration": "mocha --config mocha.config.json --spec './test/integration/**/*.test.ts'",
-		"release:dry": "release-it --dry-run --no-npm",
-		"release": "release-it"
-	},
 	"dependencies": {
 		"micro": "10.0.1",
 		"tslib": "2.8.1"
@@ -60,6 +50,7 @@
 		"mocha": "11.7.5",
 		"prettier": "3.8.3",
 		"release-it": "19.2.4",
+		"rust-just": "1.50.0",
 		"test-listen": "1.1.0",
 		"typescript": "5.9.3"
 	}

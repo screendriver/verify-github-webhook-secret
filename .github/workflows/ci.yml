@@ -11,9 +11,9 @@ jobs:
             matrix:
                 include:
                     - node-version: 22
-                      command: test:unit
+                      command: test
                     - node-version: 24
-                      command: test:unit:coverage
+                      command: test-unit-coverage
         steps:
             - uses: actions/checkout@v6
             - name: Use Node.js
@@ -22,11 +22,9 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: Install dependencies
               run: npm clean-install
-            - name: Compile source code
-              run: npm run compile
-            - name: Run unit tests
-              run: npm run ${{ matrix.command }}
+            - name: Run tests
+              run: npx just ${{ matrix.command }}
             - name: Run integration tests
-              run: npm run test:integration
+              run: npx just test-integration
             - name: Check source code
-              run: npm run lint
+              run: npx just lint
