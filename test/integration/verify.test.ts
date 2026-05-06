@@ -4,7 +4,7 @@ import micro from "micro";
 import listen from "test-listen";
 import got from "got";
 import type { Headers } from "got";
-import { verifySecret } from "../../src/index.js";
+import { verifySecret } from "../../src/index.ts";
 
 interface TestVerifySecretOptions {
 	readonly secret: string;
