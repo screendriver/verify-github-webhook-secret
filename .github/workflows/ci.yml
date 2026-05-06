@@ -5,13 +5,18 @@ on: [push, pull_request]
 
 jobs:
     test:
+        name: Tests (Node.js v${{ matrix.node-version }})
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ["18.x", "20.x", "22.x", "24.x"]
+                include:
+                    - node-version: 22
+                      command: test:unit
+                    - node-version: 24
+                      command: test:unit:coverage
         steps:
-            - uses: actions/checkout@v5
-            - name: Use Node.js v${{ matrix.node-version }}
+            - uses: actions/checkout@v6
+            - name: Use Node.js
               uses: actions/setup-node@v6
               with:
                   node-version: ${{ matrix.node-version }}
@@ -20,7 +25,7 @@ jobs:
             - name: Compile source code
               run: npm run compile
             - name: Run unit tests
-              run: npm run test:unit:coverage
+              run: npm run ${{ matrix.command }}
             - name: Run integration tests
               run: npm run test:integration
             - name: Check source code
