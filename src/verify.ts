@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 
-export function verify(body: string, secret: string, signature?: string | string[]): boolean {
+export function verify(body: string, secret: string, signature?: string[] | string): boolean {
 	if (!signature) {
 		return false;
 	}

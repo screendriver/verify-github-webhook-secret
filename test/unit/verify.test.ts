@@ -3,7 +3,7 @@ import { test } from "mocha";
 import { verify } from "../../src/verify.ts";
 
 const body = JSON.stringify({
-	foo: "bar",
+	foo: "bar"
 });
 
 const signature = "sha1=30a233839fe2ddd9233c49fd593e8f1aec68f553";

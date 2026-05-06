@@ -10,7 +10,7 @@ compile:
     tsc --build
 
 lint:
-    eslint . --ext '.ts'
+    eslint .
 
 test-unit *options:
     mocha --config mocha.config.json --spec './test/unit/**/*.test.ts' {{options}}
