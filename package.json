@@ -49,7 +49,7 @@
 		"mocha": "11.7.5",
 		"prettier": "3.8.3",
 		"release-it": "20.0.1",
-		"rust-just": "1.50.0",
+		"rust-just": "1.51.0",
 		"test-listen": "1.1.0",
 		"typescript": "6.0.3"
 	}
