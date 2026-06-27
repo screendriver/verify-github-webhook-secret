@@ -38,7 +38,7 @@
 		"@enormora/eslint-config-base": "0.0.31",
 		"@enormora/eslint-config-mocha": "0.0.42",
 		"@enormora/eslint-config-node": "0.0.35",
-		"@enormora/eslint-config-typescript": "0.0.36",
+		"@enormora/eslint-config-typescript": "0.0.52",
 		"@types/mocha": "10.0.10",
 		"@types/test-listen": "1.1.2",
 		"auto-changelog": "2.6.0",
