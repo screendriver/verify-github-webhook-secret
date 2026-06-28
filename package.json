@@ -47,7 +47,7 @@
 		"eslint": "10.6.0",
 		"ky": "2.0.2",
 		"mocha": "11.7.6",
-		"prettier": "3.9.0",
+		"prettier": "3.9.1",
 		"release-it": "20.2.1",
 		"rust-just": "1.54.0",
 		"test-listen": "1.1.0",
