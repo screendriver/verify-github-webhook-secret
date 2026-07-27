@@ -24,13 +24,13 @@ async function verifySecretForRequest(options: TestVerifySecretOptions): Promise
 		})
 	);
 
+	let headers: HeadersInit | undefined;
+	if (xHubSignatureHeader !== undefined) {
+		headers = { "X-Hub-Signature": xHubSignatureHeader };
+	}
+
 	try {
 		const url = await listen(server);
-		let headers: HeadersInit | undefined;
-
-		if (xHubSignatureHeader !== undefined) {
-			headers = { "X-Hub-Signature": xHubSignatureHeader };
-		}
 
 		await ky.post(url, {
 			headers,

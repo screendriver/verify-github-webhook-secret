@@ -3,12 +3,24 @@ import { mochaConfig } from "@enormora/eslint-config-mocha";
 import { nodeConfig, nodeConfigFileConfig } from "@enormora/eslint-config-node";
 import { typescriptConfig } from "@enormora/eslint-config-typescript";
 
+const [javaScriptAndTypeScriptBaseConfig] = baseConfig;
+
 export default [
 	{
 		ignores: ["target/**/*", "mocha.config.json"]
 	},
-	baseConfig,
-	nodeConfig,
+	{
+		...javaScriptAndTypeScriptBaseConfig,
+		files: ["**/*.{js,ts}"],
+		rules: {
+			...javaScriptAndTypeScriptBaseConfig.rules,
+			"dprint/typescript": "off"
+		}
+	},
+	{
+		...nodeConfig,
+		files: ["**/*.{js,ts}"]
+	},
 	{
 		...typescriptConfig,
 		files: ["**/*.ts"]
@@ -48,7 +60,8 @@ export default [
 			"@typescript-eslint/no-shadow": "off",
 			"max-statements": "off",
 			"mocha/no-global-tests": "off",
-			"mocha/no-mocha-arrows": "off"
+			"mocha/no-mocha-arrows": "off",
+			"restricted-syntax/no-unnecessary-arrow-function": "off"
 		}
 	},
 	{
@@ -58,6 +71,7 @@ export default [
 			"@stylistic/indent": "off",
 			"@stylistic/quotes": "off",
 			"@stylistic/comma-dangle": "off",
+			"@stylistic/array-bracket-spacing": "off",
 			"import/no-commonjs": "off",
 			"import/extensions": "off",
 			"no-undef": "off"
