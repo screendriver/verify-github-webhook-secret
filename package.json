@@ -7,8 +7,8 @@
 		"node": "^22.0.0 || ^24.0.0"
 	},
 	"exports": {
-		"types": "./target/src/index.d.ts",
-		"default": "./target/src/index.js"
+		"types": "./target/source/index.d.ts",
+		"default": "./target/source/index.js"
 	},
 	"author": "Christian Rackerseder <git@echooff.de>",
 	"license": "MIT",
@@ -26,9 +26,9 @@
 		"webhook"
 	],
 	"files": [
-		"target/src/**/*.js",
-		"target/src/**/*.js.map",
-		"target/src/**/*.d.ts"
+		"target/source/**/*.js",
+		"target/source/**/*.js.map",
+		"target/source/**/*.d.ts"
 	],
 	"dependencies": {
 		"micro": "10.0.1",

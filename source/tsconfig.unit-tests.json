@@ -1,0 +1,11 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "../target/test",
+		"rootDir": "../test",
+		"types": ["node", "mocha"],
+		"tsBuildInfoFile": "../target/buildcache/unit-tests.tsbuildinfo"
+	},
+	"references": [{ "path": "./tsconfig.sources.json" }],
+	"include": ["../test/**/*.test.ts"]
+}

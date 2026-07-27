@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import { test } from "mocha";
-import { verify } from "../../src/verify.ts";
+import { verify } from "../../source/verify.ts";
 
 const body = JSON.stringify({
 	foo: "bar"

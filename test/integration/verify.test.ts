@@ -4,7 +4,7 @@ import ky from "ky";
 import micro from "micro";
 import listen from "test-listen";
 import { test } from "mocha";
-import { verifySecret } from "../../src/index.ts";
+import { verifySecret } from "../../source/index.ts";
 
 type TestVerifySecretOptions = {
 	readonly secret: string;

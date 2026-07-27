@@ -8,7 +8,7 @@
 	"reporter": ["lcov", "text-summary", "clover"],
 	"reportDir": "./target/coverage",
 	"tempDirectory": "./target/c8_output",
-	"src": "src",
-	"include": ["target/src/**/*"],
-	"exclude": ["target/src/index.js"]
+	"src": "source",
+	"include": ["target/source/**/*"],
+	"exclude": ["target/source/index.js"]
 }
