@@ -1,7 +1,12 @@
 ---
 name: Continuous Integration
 
-on: [push, pull_request]
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+    push:
+        branches:
+            - main
 
 jobs:
     test:
