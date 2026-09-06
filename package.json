@@ -46,7 +46,7 @@
 		"esbuild": "0.28.2",
 		"eslint": "10.8.0",
 		"ky": "2.1.0",
-		"mocha": "11.8.0",
+		"mocha": "12.0.0",
 		"prettier": "3.9.6",
 		"release-it": "21.0.2",
 		"rust-just": "1.57.0",
