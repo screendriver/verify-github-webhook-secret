@@ -48,7 +48,7 @@
 		"ky": "2.2.0",
 		"mocha": "11.8.0",
 		"prettier": "3.9.10",
-		"release-it": "21.1.1",
+		"release-it": "21.1.2",
 		"rust-just": "1.59.0",
 		"test-listen": "1.1.0",
 		"typescript": "6.0.3"
