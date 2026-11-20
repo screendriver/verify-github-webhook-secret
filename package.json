@@ -31,7 +31,7 @@
 		"target/source/**/*.d.ts"
 	],
 	"dependencies": {
-		"micro": "10.0.1",
+		"micro": "10.0.2",
 		"tslib": "2.9.1"
 	},
 	"devDependencies": {
